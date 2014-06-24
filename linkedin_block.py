@@ -33,7 +33,6 @@ class LinkedIn(RESTPolling):
     creds = ObjectProperty(OAuthCreds)
     lookback = TimeDeltaProperty()
     limit = IntProperty(default=10)
-    group_id = StringProperty(default='')
 
     def __init__(self):
         super().__init__()
@@ -81,7 +80,7 @@ class LinkedIn(RESTPolling):
 
         if not paging:
             self.paging_url = None
-            self.url = fmt.format(self.group_id,
+            self.url = fmt.format(self.current_query,
                                   self.freshest - 2,
                                   self.limit)
         return headers
