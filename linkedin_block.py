@@ -17,10 +17,10 @@ class LinkedInSignal(Signal):
 
 
 class OAuthCreds(PropertyHolder):
-    consumer_key = StringProperty()
-    app_secret = StringProperty()
-    oauth_token = StringProperty()
-    oauth_secret = StringProperty()
+    consumer_key = StringProperty(title='Consumer Key')
+    app_secret = StringProperty(title='App Secret')
+    oauth_token = StringProperty(title='OAuth Token')
+    oauth_secret = StringProperty(title='OAuth Secret')
 
 
 @Discoverable(DiscoverableType.block)
@@ -30,9 +30,9 @@ class LinkedIn(RESTPolling):
                   "site-group-post-url)?category=discussion&order=recency&"
                   "modified-since={1}&count={2}")
 
-    creds = ObjectProperty(OAuthCreds)
-    lookback = TimeDeltaProperty()
-    limit = IntProperty(default=10)
+    creds = ObjectProperty(title='Credentials', OAuthCreds)
+    lookback = TimeDeltaProperty(title='Lookback Period')
+    limit = IntProperty(title='Limit', default=10)
 
     def __init__(self):
         super().__init__()
