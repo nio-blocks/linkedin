@@ -30,7 +30,7 @@ class LinkedIn(RESTPolling):
                   "site-group-post-url)?category=discussion&order=recency&"
                   "modified-since={1}&count={2}")
 
-    creds = ObjectProperty(title='Credentials', OAuthCreds)
+    creds = ObjectProperty(OAuthCreds, title='Credentials')
     lookback = TimeDeltaProperty(title='Lookback Period')
     limit = IntProperty(title='Limit', default=10)
 
