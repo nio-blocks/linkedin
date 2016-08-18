@@ -1,7 +1,7 @@
 LinkedIn
 ========
 
-Create a signal for each new discussion post, given a group ID. Official documentation [here](https://developer.linkedin.com/documents/groups-api#groupposts).
+Create a signal for each new discussion post, given a group ID. Official [documentation](https://developer.linkedin.com/docs).
 
 Properties
 --------------
