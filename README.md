@@ -25,9 +25,15 @@ Output
 ---------
 Creates a new signal for each LinkedIn Group Discussion Post. Every field in the Post will become a signal attribute. The following is a list of commonly include attributes, but note that not all will be included on every signal:
 
--   `id`
--   creator[`firstName`]
--   creator[`lastName`]
--   `title`
--   `summary`
--   `siteGroupPostUrl`
+```
+{
+  id: string,
+  creator: {
+    firstName: string,
+    lastName: string
+  },
+  title: string,
+  summary: string,
+  siteGroupPostUrl: string
+}
+```
