@@ -37,7 +37,8 @@ class LinkedIn(RESTPolling):
                   "modified-since={1}&count={2}")
 
     creds = ObjectProperty(OAuthCreds, title='Credentials')
-    lookback = TimeDeltaProperty(title='Lookback Period', default={'seconds':300})
+    lookback = TimeDeltaProperty(
+        title='Lookback Period', default={'seconds': 300})
     limit = IntProperty(title='Limit', default=10)
 
     def __init__(self):
@@ -51,11 +52,16 @@ class LinkedIn(RESTPolling):
         self._freshest = [lb] * self._n_queries
 
     def _authenticate(self):
-        if self.creds().consumer_key() is None or self.creds().app_secret() is None:
+        if self.creds().consumer_key() is None \
+                or self.creds().app_secret() is None:
             self.logger.error("You need a consumer key and app secret, yo")
         else:
-            self._auth = OAuth1(self.creds().consumer_key(), self.creds().app_secret(),
-                                self.creds().oauth_token(), self.creds().oauth_secret())
+            self._auth = OAuth1(
+                self.creds().consumer_key(),
+                self.creds().app_secret(),
+                self.creds().oauth_token(),
+                self.creds().oauth_secret()
+            )
 
     def _process_response(self, resp):
         signals = []
