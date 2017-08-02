@@ -1,34 +1,10 @@
 {
-    "nio/LinkedIn": {
-        "Version": "1.0.0",
-        "Output": {
-            "Description": "Creates a new signal for each LinkedIn Group Discussion Post. Every field in the Post will become a signal attribute. The following is a list of commonly include attributes, but note that not all will be included on every signal:\n```\n{\nid: string,\ncreator: {\nfirstName: string,\nlastName: string\n},\ntitle: string,\nsummary: string,\nsiteGroupPostUrl: string\n}\n```"
-        },
-        "Commands": {},
-        "Category": "WebService",
-        "Input": {
-            "Description": "None"
-        },
-        "Description": "Create a signal for each new discussion post, given a group ID. Official [documentation](https://developer.linkedin.com/docs).",
-        "Properties": {
-            "polling_interval": {
-                "description": "How often API is polled. When using more than one query, each query will be polled at a period equal to the `polling_interval` times the number of `queries`."
-            },
-            "lookback": {
-                "description": "On block start, look back this amount of time to grab old posts."
-            },
-            "creds": {
-                "description": "API credentials."
-            },
-            "retry_interval": {
-                "description": "When a url request fails, how long to wait before attempting to try again."
-            },
-            "limit": {
-                "description": "Number of posts notified on each url request."
-            },
-            "queries": {
-                "description": "List of group IDs to query."
-            }
-        }
-    }
+  "nio/LinkedIn": {
+    "version": "0.0.1",
+    "description": "",
+    "inputs": {},
+    "outputs": {},
+    "properties": {},
+    "commands": {}
+  }
 }
