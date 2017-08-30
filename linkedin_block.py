@@ -3,7 +3,6 @@ from datetime import datetime
 
 from nio.properties import ObjectProperty, StringProperty, TimeDeltaProperty, \
     IntProperty, PropertyHolder, VersionProperty
-from nio.properties.string import StringProperty
 from nio.signal.base import Signal
 
 from .rest_polling.rest_block import RESTPolling
