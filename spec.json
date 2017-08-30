@@ -1,10 +1,78 @@
 {
   "nio/LinkedIn": {
     "version": "0.0.1",
-    "description": "",
-    "inputs": {},
-    "outputs": {},
-    "properties": {},
+    "description": "Create a signal for each new discussion post, given a group ID. Official [documentation](https://developer.linkedin.com/docs).",
+    "properties": {
+      "creds": {
+        "title": "Credentials",
+        "type": "ObjectType",
+        "description": "Credentials to connect to LinkedIn API.",
+        "default": {
+          "app_secret": "[[LINKEDIN_APP_SECRET]]",
+          "oauth_token": "[[LINKEDIN_TOKEN]]",
+          "consumer_key": "[[LINKEDIN_CONSUMER_KEY]]",
+          "oauth_secret": "[[LINKEDIN_SECRET]]"
+        }
+      },
+      "include_query": {
+        "title": "Include Query Field",
+        "type": "StringType",
+        "description": "Whether to include queries in request to LinkedIn.",
+        "default": null
+      },
+      "limit": {
+        "title": "Limit",
+        "type": "IntType",
+        "description": "Number of posts to come back on each url request to LinkedIn.",
+        "default": 10
+      },
+      "lookback": {
+        "title": "Lookback Period",
+        "type": "TimeDeltaType",
+        "description": "On block start, look back this amount of time to grab old posts.",
+        "default": {
+          "seconds": 300
+        }
+      },
+      "polling_interval": {
+        "title": "Polling Interval",
+        "type": "TimeDeltaType",
+        "description": "How often LinkedIn is polled. When using more than one query. Each query will be polled at a period equal to the *polling interval* times the number of queries.",
+        "default": {
+          "seconds": 20
+        }
+      },
+      "queries": {
+        "title": "Query Strings",
+        "type": "ListType",
+        "description": "Queries to include on request to LinkedIn.",
+        "default": []
+      },
+      "retry_interval": {
+        "title": "Retry Interval",
+        "type": "TimeDeltaType",
+        "description": "When a url request fails, how long to wait before attempting to try again.",
+        "default": {
+          "seconds": 60
+        }
+      },
+      "retry_limit": {
+        "title": "Retry Limit",
+        "type": "IntType",
+        "description": "Number if times to retry on a poll.",
+        "default": 3
+      }
+    },
+    "inputs": {
+      "default": {
+        "description": "Any list of signals."
+      }
+    },
+    "outputs": {
+      "default": {
+        "description": "Creates a new signal for each LinkedIn Group Discussion Post. Every field in the Post will become a signal attribute."
+      }
+    },
     "commands": {}
   }
 }
