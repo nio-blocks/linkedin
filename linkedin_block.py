@@ -1,13 +1,11 @@
 from requests_oauthlib import OAuth1
 from datetime import datetime
-from nio.util.discovery import discoverable
-from .http_blocks.rest.rest_block import RESTPolling
-from nio.properties.object import ObjectProperty
-from nio.properties.string import StringProperty
-from nio.properties.timedelta import TimeDeltaProperty
-from nio.properties.int import IntProperty
-from nio.properties.holder import PropertyHolder
+
+from nio.properties import ObjectProperty, StringProperty, TimeDeltaProperty, \
+    IntProperty, PropertyHolder, VersionProperty
 from nio.signal.base import Signal
+
+from .rest_polling.rest_block import RESTPolling
 
 
 class LinkedInSignal(Signal):
@@ -29,7 +27,6 @@ class OAuthCreds(PropertyHolder):
                                   default='[[LINKEDIN_SECRET]]')
 
 
-@discoverable
 class LinkedIn(RESTPolling):
     URL_FORMAT = ("https://api.linkedin.com/v1/groups/{0}/"
                   "posts:(id,creator,title,summary,creation-timestamp,"
@@ -40,6 +37,7 @@ class LinkedIn(RESTPolling):
     lookback = TimeDeltaProperty(
         title='Lookback Period', default={'seconds': 300})
     limit = IntProperty(title='Limit', default=10)
+    version = VersionProperty('0.0.1')
 
     def __init__(self):
         super().__init__()

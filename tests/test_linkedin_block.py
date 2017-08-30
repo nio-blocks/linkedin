@@ -1,4 +1,5 @@
 from nio.testing.block_test_case import NIOBlockTestCase
+
 from ..linkedin_block import LinkedIn
 
 
