@@ -37,7 +37,7 @@ class LinkedIn(RESTPolling):
     lookback = TimeDeltaProperty(
         title='Lookback Period', default={'seconds': 300})
     limit = IntProperty(title='Limit', default=10)
-    version = VersionProperty('0.0.1')
+    version = VersionProperty("1.0.0")
 
     def __init__(self):
         super().__init__()
