@@ -1,6 +1,6 @@
 {
   "nio/LinkedIn": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Create a signal for each new discussion post, given a group ID. Official [documentation](https://developer.linkedin.com/docs).",
     "categories": [
       "Social Media"
